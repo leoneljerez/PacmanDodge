@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8239824552335455557}
   - component: {fileID: 285642286234907307}
   - component: {fileID: 261154631603458591}
-  - component: {fileID: 6467125434204068442}
+  - component: {fileID: 795558687439111128}
   - component: {fileID: 7311105174778475780}
   m_Layer: 0
   m_Name: PowerPellet
@@ -107,7 +107,7 @@ Halo:
     serializedVersion: 2
     rgba: 4286611584
   m_Size: 1
---- !u!114 &6467125434204068442
+--- !u!114 &795558687439111128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8756929823289967133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef7783f47ca6bfb47ab0f30b077aa841, type: 3}
+  m_Script: {fileID: 11500000, guid: a15bf5936cbcb55469b0de7f3d8b8ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audiodata: {fileID: 7311105174778475780}

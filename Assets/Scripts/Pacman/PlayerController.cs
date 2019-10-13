@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioReset = null;
     [SerializeField] private float movementSpeed = 0f;
-    [SerializeField] private AudioSource audiodata = null;
+    [SerializeField] private AudioSource audioStart = null;
 
     private Animator animator;
     private Vector3 _initialPosition;
@@ -87,8 +88,11 @@ public class PlayerController : MonoBehaviour
     //Die whenever a ghost hits us
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy"))
-            animator.SetBool("isDead",true);
+        if (other.CompareTag("Enemy"))
+        {
+            animator.SetBool("isDead", true);
+            audioReset.Play();
+        }
     }
 
     //Start game or reset position when Pac-Man dies
@@ -103,8 +107,8 @@ public class PlayerController : MonoBehaviour
     //Wait until the music plays to start the game
     private IEnumerator StartGame()
     {
-        audiodata.Play();
-        yield return new WaitForSeconds(audiodata.clip.length - 0.5f);
+        audioStart.Play();
+        yield return new WaitForSeconds(audioStart.clip.length - 0.5f);
         performed = true;
     }
 }

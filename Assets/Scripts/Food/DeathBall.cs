@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class DeathBall : MonoBehaviour
 {
-    [SerializeField] private AudioSource audiodata = null;
+    [SerializeField] private AudioSource audiodata;
     [SerializeField] private GameObject scoreText = null;
     [SerializeField] private int point= 0;
+
 
     // Start is called before the first frame update
     void Start()
