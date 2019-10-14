@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource audioReset = null;
     [SerializeField] private float movementSpeed = 0f;
     [SerializeField] private AudioSource audioStart = null;
+    [SerializeField] private int lives = 0;
 
     private Animator animator;
     private Vector3 _initialPosition;
@@ -88,10 +89,16 @@ public class PlayerController : MonoBehaviour
     //Die whenever a ghost hits us
     private void OnTriggerEnter(Collider other)
     {
+        //TODO You can sometimes keep moving while dead so the if statement will run again
         if (other.CompareTag("Enemy"))
         {
             animator.SetBool("isDead", true);
             audioReset.Play();
+            if (lives >= 1)
+            {
+                GameObject.Find("Lives " + lives.ToString()).SetActive(false);
+                lives--;
+            }
         }
     }
 

@@ -8,6 +8,7 @@ public class DeathPowerPellet : MonoBehaviour
     [SerializeField] private AudioSource audiodata;
     [SerializeField] private GameObject scoreText = null;
     [SerializeField] private int point= 0;
+    [SerializeField] private ParticleSystem pulse;
 
     // Start is called before the first frame update
     void Start()
@@ -15,27 +16,12 @@ public class DeathPowerPellet : MonoBehaviour
         audiodata = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Random turn on/off power pellet halo
-        float num = Random.Range(0.0f, 10f);
-        if (num > 5.0f && num < 5.1f)
-        {
-            Behaviour halo = (Behaviour) GetComponent("Halo");
-            halo.enabled = true;
-        }
-        else if (num > 0.0f && num < 0.1f)
-        {
-            Behaviour halo = (Behaviour) GetComponent("Halo");
-            halo.enabled = false;
-        }
-    }
-
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Pacman")
         {
+            pulse.Clear();
+            pulse.Stop();
             ScoreManager.scores += point;
             audiodata.Play();
             ShowFloatingText();
