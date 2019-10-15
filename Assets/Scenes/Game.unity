@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6416,7 +6416,12 @@ PrefabInstance:
     - target: {fileID: 4484473215945979879, guid: b7e812b820b0e964eb2cbc4d337026d5,
         type: 3}
       propertyPath: m_Name
-      value: Cube (275)
+      value: PowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484473215945979879, guid: b7e812b820b0e964eb2cbc4d337026d5,
+        type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
       objectReference: {fileID: 0}
     - target: {fileID: 4484473215945979878, guid: b7e812b820b0e964eb2cbc4d337026d5,
         type: 3}
@@ -8810,7 +8815,12 @@ PrefabInstance:
     - target: {fileID: 4484473215945979879, guid: b7e812b820b0e964eb2cbc4d337026d5,
         type: 3}
       propertyPath: m_Name
-      value: Cube (84)
+      value: PowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484473215945979879, guid: b7e812b820b0e964eb2cbc4d337026d5,
+        type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
       objectReference: {fileID: 0}
     - target: {fileID: 4484473215945979878, guid: b7e812b820b0e964eb2cbc4d337026d5,
         type: 3}
@@ -18510,7 +18520,12 @@ PrefabInstance:
     - target: {fileID: 4484473215945979879, guid: b7e812b820b0e964eb2cbc4d337026d5,
         type: 3}
       propertyPath: m_Name
-      value: Cube (265)
+      value: PowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484473215945979879, guid: b7e812b820b0e964eb2cbc4d337026d5,
+        type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
       objectReference: {fileID: 0}
     - target: {fileID: 4484473215945979878, guid: b7e812b820b0e964eb2cbc4d337026d5,
         type: 3}
@@ -23068,7 +23083,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 71.90039, y: -7.999878}
+  m_AnchoredPosition: {x: 71.90234, y: -7.999878}
   m_SizeDelta: {x: 59.9, y: 59.9}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1394851584
@@ -27036,7 +27051,12 @@ PrefabInstance:
     - target: {fileID: 4484473215945979879, guid: b7e812b820b0e964eb2cbc4d337026d5,
         type: 3}
       propertyPath: m_Name
-      value: Cube (123)
+      value: PowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484473215945979879, guid: b7e812b820b0e964eb2cbc4d337026d5,
+        type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
       objectReference: {fileID: 0}
     - target: {fileID: 4484473215945979878, guid: b7e812b820b0e964eb2cbc4d337026d5,
         type: 3}
@@ -36164,7 +36184,7 @@ PrefabInstance:
     - target: {fileID: 1952037739212350928, guid: e1ee715315c2e1e49bdf2694027a87e8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 1952037739212350928, guid: e1ee715315c2e1e49bdf2694027a87e8,
         type: 3}
@@ -36220,6 +36240,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6441819862871172464, guid: e1ee715315c2e1e49bdf2694027a87e8,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053040013752302600, guid: e1ee715315c2e1e49bdf2694027a87e8,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 3702932148512195531, guid: 6ce430a97c002c44f9ed279ed2ed5b4c,
+        type: 3}
+    - target: {fileID: 9053040013752302600, guid: e1ee715315c2e1e49bdf2694027a87e8,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376112769341603426, guid: e1ee715315c2e1e49bdf2694027a87e8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.376
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516134953264595258, guid: e1ee715315c2e1e49bdf2694027a87e8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.376
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1ee715315c2e1e49bdf2694027a87e8, type: 3}

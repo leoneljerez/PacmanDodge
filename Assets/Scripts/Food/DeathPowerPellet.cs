@@ -23,6 +23,7 @@ public class DeathPowerPellet : MonoBehaviour
             pulse.Clear();
             pulse.Stop();
             ScoreManager.scores += point;
+            PlayerController.isPowerUp = true;
             audiodata.Play();
             ShowFloatingText();
             gameObject.GetComponent<Renderer>().enabled = false;
@@ -30,7 +31,7 @@ public class DeathPowerPellet : MonoBehaviour
             gameObject.GetComponent<Behaviour>().enabled = false;
             Destroy(gameObject, audiodata.clip.length + 1f); // Keep + 1f to leave a trail when the floating text shows
         }
-        
+
     }
 
     void ShowFloatingText()
