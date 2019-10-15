@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pacman
   - Enemy
+  - PowerUp
   layers:
   - Default
   - TransparentFX
