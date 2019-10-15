@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource audioStart = null;
     [SerializeField] private int lives = 0;
 
+    public static bool isPowerUp;
+    public static float powerUpTimer;
+
     private Animator animator;
     private Vector3 _initialPosition;
     private bool performed;
@@ -20,6 +23,9 @@ public class PlayerController : MonoBehaviour
         _initialPosition = transform.position;
         animator = GetComponent<Animator>();
         performed = false;
+
+        isPowerUp = false;
+        powerUpTimer=0;
 
         Reset();
         if (performed == false)
@@ -32,6 +38,13 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         MovePlayer();
+        if(powerUpTimer>0) {
+          powerUpTimer-= Time.deltaTime;
+        }
+        if(isPowerUp) {
+          powerUpTimer += 5;
+          isPowerUp=false;
+        }
     }
 
     //Moves the player whenever they press a Keyboard (W,A,S,D or up,down,left,right) or Gamepad (dpad up,down,left,right or left stick)
@@ -92,13 +105,16 @@ public class PlayerController : MonoBehaviour
         //TODO You can sometimes keep moving while dead so the if statement will run again
         if (other.CompareTag("Enemy"))
         {
+          if(powerUpTimer<=0) {
             animator.SetBool("isDead", true);
             audioReset.Play();
-            if (lives >= 1)
-            {
+            if (lives >= 1){
                 GameObject.Find("Lives " + lives.ToString()).SetActive(false);
                 lives--;
+            } else if(powerUpTimer>0) {
+
             }
+          }
         }
     }
 
