@@ -38,7 +38,7 @@ public class DeathBall : MonoBehaviour
     void ShowFloatingText()
     {
         var go = Instantiate(scoreText, transform.position, Quaternion.identity, transform);
-        go.GetComponent<TextMeshPro>().faceColor = new Color32(230, 230, 41,255); //change text color to yellowish
+        go.GetComponent<TextMeshPro>().faceColor = new Color32(255, 255, 102,255); //change text color to yellowish
         go.GetComponent<TextMeshPro>().text = point.ToString();
     }
 }

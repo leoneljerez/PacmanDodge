@@ -308,3 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c3eea394b8551448b66bdcbc8a81fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 3702932148512195531, guid: 64f80c6dfe8e7e64f83b23e5684f0640,
+    type: 3}
+  point: 150
+  movementSpeed: 0

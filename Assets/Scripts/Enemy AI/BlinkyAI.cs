@@ -104,7 +104,7 @@ public class BlinkyAI : MonoBehaviour
     void ShowFloatingText()
     {
         var go = Instantiate(scoreText, transform.position, Quaternion.identity, transform);
-        go.GetComponent<TextMeshPro>().faceColor = new Color32(255, 0,0,255); // change  color to red
+        go.GetComponent<TextMeshPro>().faceColor = new Color32(240, 72,72,255); // change  color to red
         go.GetComponent<TextMeshPro>().text = point.ToString();
     }
 
