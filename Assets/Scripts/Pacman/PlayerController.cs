@@ -134,4 +134,15 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(audioStart.clip.length - 0.5f);
         performed = true;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "RandomEvent")
+        {
+            collision.transform.position = new Vector3(collision.transform.position.x, -1, collision.transform.position.z);
+            transform.position = _initialPosition;
+        }
+
+ 
+    }
 }

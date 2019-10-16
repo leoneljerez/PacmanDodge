@@ -20,6 +20,14 @@ public class Grid : MonoBehaviour
         CreateGrid();
     }
 
+    public int MaximumSize
+    {
+        get
+        {
+            return gridSizeX * gridSizeY;
+        }
+    }
+
     void CreateGrid()
     {
         grid = new Node[gridSizeX, gridSizeY];
@@ -31,9 +39,35 @@ public class Grid : MonoBehaviour
             {
                 Vector3 PointinWorld = BottomLeftofWorld + Vector3.right * (x * nodeDiameter + NodeRadius) + Vector3.forward * (y * nodeDiameter + NodeRadius);
                 bool walkable = !(Physics.CheckSphere(PointinWorld, NodeRadius, unwalkableMask));
-                grid[x, y] = new Node(walkable, PointinWorld);
+                grid[x, y] = new Node(walkable, PointinWorld, x, y);
             }
         }
+    }
+
+    public List<Node> GetNeighbors(Node node)
+    {
+        List<Node> neighbors = new List<Node>();
+
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++)
+            {
+                if(x == 0 && y == 0)
+                {
+                    continue;
+                }
+
+                int checkX = node.gridX + x;
+                int checkY = node.gridY + y;
+
+                if(checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                {
+                    neighbors.Add(grid[checkX, checkY]);
+                }
+            }
+        }
+
+        return neighbors;
     }
 
     public Node NodeFromPointInWorld(Vector3 worldPosition)
