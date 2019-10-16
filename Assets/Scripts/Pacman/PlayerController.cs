@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
     private Vector3 _initialPosition;
-    private bool performed;
+    public static bool performed;
 
     // Start is called before the first frame update
     private void Start()
@@ -143,6 +143,6 @@ public class PlayerController : MonoBehaviour
             transform.position = _initialPosition;
         }
 
- 
+
     }
 }
