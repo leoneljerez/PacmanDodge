@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
@@ -37,6 +38,7 @@ public class DeathBall : MonoBehaviour
     void ShowFloatingText()
     {
         var go = Instantiate(scoreText, transform.position, Quaternion.identity, transform);
-        go.GetComponent<TextMesh>().text = point.ToString();
+        go.GetComponent<TextMeshPro>().faceColor = new Color32(230, 230, 41,255); //change text color to yellowish
+        go.GetComponent<TextMeshPro>().text = point.ToString();
     }
 }

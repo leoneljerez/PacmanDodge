@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DeathPowerPellet : MonoBehaviour
@@ -37,6 +38,6 @@ public class DeathPowerPellet : MonoBehaviour
     void ShowFloatingText()
     {
         var go = Instantiate(scoreText, transform.position, Quaternion.identity, transform);
-        go.GetComponent<TextMesh>().text = point.ToString();
+        go.GetComponent<TextMeshPro>().text = point.ToString();
     }
 }
