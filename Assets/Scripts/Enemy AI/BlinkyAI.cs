@@ -11,6 +11,7 @@ public class BlinkyAI : MonoBehaviour
 
 
     private Vector3 _initialPosition;
+    private Quaternion _initialRotation;
     private Vector3 _startMovePosition;
     private bool moveFromStart;
     private float reStartTimer;
@@ -21,6 +22,7 @@ public class BlinkyAI : MonoBehaviour
     {
         //_initialPosition = transform.position;
         _initialPosition = transform.position;
+        _initialRotation = transform.rotation;
         _startMovePosition = new Vector3(0.03f,1f,5f);
         moveFromStart = true;
         reStartTimer = 0f;
@@ -32,22 +34,26 @@ public class BlinkyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(reStartTimer>0) {
-        reStartTimer-=Time.deltaTime;
-      } else {
-        if(reStartTimer<0) reStartTimer=0;
-        if(Vector3.Distance(transform.position,moveCheck)<0.001f) moveOption+=1;
-        if(moveOption>3) moveOption=0;
-        moveCheck=transform.position;
-        testMoveGhost();
+      if(PlayerController.performed) {
+        if(reStartTimer>0) {
+          reStartTimer-=Time.deltaTime;
+        } else {
+          if(reStartTimer<0) reStartTimer=0;
+          if(Vector3.Distance(transform.position,moveCheck)<0.001f) moveOption+=1;
+          if(moveOption>3) moveOption=0;
+          moveCheck=transform.position;
+          testMoveGhost();
+        }
       }
+
     }
     public void Reset()
     {
         transform.position = _initialPosition;
-        transform.rotation = Quaternion.LookRotation(Vector3.back);
+        transform.rotation = _initialRotation;
         moveFromStart=true;
         movementSpeed=2f;
+        moveOption=0;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -71,9 +77,11 @@ public class BlinkyAI : MonoBehaviour
         if(Vector3.Distance(transform.position,_startMovePosition)>=0.08f) {
           transform.position += Vector3.left * movementSpeed * Time.deltaTime;
           transform.rotation = Quaternion.LookRotation(Vector3.left);
+
         } else {
           moveFromStart=false;
           movementSpeed=7f;
+          moveOption=1;
         }
       } else {
         if(moveOption == 0) {
@@ -97,5 +105,6 @@ public class BlinkyAI : MonoBehaviour
         var go = Instantiate(scoreText, transform.position, Quaternion.identity, transform);
         go.GetComponent<TextMesh>().text = point.ToString();
     }
+
 
 }
