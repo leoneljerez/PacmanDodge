@@ -67,6 +67,9 @@
      <Compile Include="Assets\Scripts\Food\DeathPowerPellet.cs" />
      <Compile Include="Assets\Scripts\Food\DestroyFloatingText.cs" />
      <Compile Include="Assets\Scripts\Food\GeneratePacdots.cs" />
+     <Compile Include="Assets\Scripts\Menus\GameOver.cs" />
+     <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
+     <Compile Include="Assets\Scripts\Menus\StartMenu.cs" />
      <Compile Include="Assets\Scripts\Pacman\PacmanDeath.cs" />
      <Compile Include="Assets\Scripts\Pacman\PlayerController.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />

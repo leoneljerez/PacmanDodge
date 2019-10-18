@@ -9,7 +9,7 @@ public class DeathPowerPellet : MonoBehaviour
     [SerializeField] private AudioSource audiodata;
     [SerializeField] private GameObject scoreText = null;
     [SerializeField] private int point= 0;
-    [SerializeField] private ParticleSystem pulse;
+    [SerializeField] private ParticleSystem pulse = null;
 
     // Start is called before the first frame update
     void Start()

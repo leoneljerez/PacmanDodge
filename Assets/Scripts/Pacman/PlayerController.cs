@@ -2,16 +2,18 @@
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private AudioSource audioReset = null;
     [SerializeField] private float movementSpeed = 0f;
     [SerializeField] private AudioSource audioStart = null;
-    [SerializeField] private int lives = 0;
+    [SerializeField] private GameObject gameOver;
 
     public static bool isPowerUp;
     public static float powerUpTimer;
+    public static int lives = 3;
 
     private Animator animator;
     private Vector3 _initialPosition;
@@ -105,16 +107,23 @@ public class PlayerController : MonoBehaviour
         //TODO You can sometimes keep moving while dead so the if statement will run again
         if (other.CompareTag("Enemy"))
         {
-          if(powerUpTimer<=0) {
-            animator.SetBool("isDead", true);
-            audioReset.Play();
-            if (lives >= 1){
-                GameObject.Find("Lives " + lives.ToString()).SetActive(false);
-                lives--;
-            } else if(powerUpTimer>0) {
+            if (powerUpTimer <= 0)
+            {
+                animator.SetBool("isDead", true);
+                audioReset.Play();
+                if (lives >= 1)
+                {
+                    GameObject.Find("Lives " + lives.ToString()).SetActive(false);
+                    lives--;
+                }
+                else
+                {
+                    SceneManager.LoadScene(2);
+                }
+            }
+            else if(powerUpTimer>0) {
 
             }
-          }
         }
     }
 
@@ -145,4 +154,5 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
 }
