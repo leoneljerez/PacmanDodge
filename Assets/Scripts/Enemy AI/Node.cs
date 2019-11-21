@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Node : IHeapItem<Node>
 {
-   
+
     public bool walkable;
     public Vector3 worldPosition;
     public int gridX;
@@ -15,6 +15,7 @@ public class Node : IHeapItem<Node>
     public Node parent;
     int heapIndex;
 
+    //function that will create the nodes for the grid 
     public Node(bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
     {
         walkable = _walkable;
@@ -23,6 +24,7 @@ public class Node : IHeapItem<Node>
         gridY = _gridY;
     }
 
+    //defines what the Fcost will be in the game
     public int Fcost
     {
         get
@@ -30,7 +32,7 @@ public class Node : IHeapItem<Node>
             return Gcost - Hcost;
         }
     }
-
+    //uses the heap index to help keep track of 
     public int HeapIndex
     {
         get
@@ -42,7 +44,7 @@ public class Node : IHeapItem<Node>
             heapIndex = value;
         }
     }
-
+    //function used to compare two nodes, involving their F cost as well as H cost
     public int CompareTo(Node nodeComparingTo)
     {
         int compare = Fcost.CompareTo(nodeComparingTo.Fcost);
@@ -54,3 +56,4 @@ public class Node : IHeapItem<Node>
         return -compare;
     }
 }
+
