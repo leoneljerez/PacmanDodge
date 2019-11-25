@@ -65,16 +65,15 @@
   <ItemGroup>
     <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Enemy AI\AEnemies.cs" />
+    <Compile Include="Assets\Scripts\Enemy AI\AIpathing.cs" />
     <Compile Include="Assets\Scripts\Enemy AI\BlinkyAI.cs" />
     <Compile Include="Assets\Scripts\Enemy AI\Grid.cs" />
     <Compile Include="Assets\Scripts\Enemy AI\Heap.cs" />
-    <Compile Include="Assets\Scripts\Enemy AI\InkyAI.cs" />
     <Compile Include="Assets\Scripts\Enemy AI\Line.cs" />
     <Compile Include="Assets\Scripts\Enemy AI\Node.cs" />
     <Compile Include="Assets\Scripts\Enemy AI\Path.cs" />
     <Compile Include="Assets\Scripts\Enemy AI\Pathfinding.cs" />
     <Compile Include="Assets\Scripts\Enemy AI\PathRequesting.cs" />
-    <Compile Include="Assets\Scripts\Enemy AI\Randomize.cs" />
     <Compile Include="Assets\Scripts\Food\DeathBall.cs" />
     <Compile Include="Assets\Scripts\Food\DeathPowerPellet.cs" />
     <Compile Include="Assets\Scripts\Food\DestroyFloatingText.cs" />
