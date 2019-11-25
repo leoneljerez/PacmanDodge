@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class Node : IHeapItem<Node>
 {
@@ -9,30 +8,30 @@ public class Node : IHeapItem<Node>
     public Vector3 worldPosition;
     public int gridX;
     public int gridY;
+    public int movementPenalty;
 
-    public int Gcost;
-    public int Hcost;
+    public int gCost;
+    public int hCost;
     public Node parent;
     int heapIndex;
 
-    //function that will create the nodes for the grid 
-    public Node(bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
+    public Node(bool _walkable, Vector3 _worldPos, int _gridX, int _gridY, int _penalty)
     {
         walkable = _walkable;
         worldPosition = _worldPos;
         gridX = _gridX;
         gridY = _gridY;
+        movementPenalty = _penalty;
     }
 
-    //defines what the Fcost will be in the game
-    public int Fcost
+    public int fCost
     {
         get
         {
-            return Gcost - Hcost;
+            return gCost + hCost;
         }
     }
-    //uses the heap index to help keep track of 
+
     public int HeapIndex
     {
         get
@@ -44,15 +43,14 @@ public class Node : IHeapItem<Node>
             heapIndex = value;
         }
     }
-    //function used to compare two nodes, involving their F cost as well as H cost
-    public int CompareTo(Node nodeComparingTo)
+
+    public int CompareTo(Node nodeToCompare)
     {
-        int compare = Fcost.CompareTo(nodeComparingTo.Fcost);
+        int compare = fCost.CompareTo(nodeToCompare.fCost);
         if (compare == 0)
         {
-            compare = Hcost.CompareTo(nodeComparingTo.Hcost);
+            compare = hCost.CompareTo(nodeToCompare.hCost);
         }
-
         return -compare;
     }
 }
