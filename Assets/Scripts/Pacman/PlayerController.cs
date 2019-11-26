@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
           powerUpTimer += 5;
           isPowerUp=false;
         }
+        PlayerWins();
     }
 
     //Moves the player whenever they press a Keyboard (W,A,S,D or up,down,left,right) or Gamepad (dpad up,down,left,right or left stick)
@@ -153,6 +154,14 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    public void PlayerWins()
+    {
+        if (GameObject.Find("PacDot(Clone)") == null)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
 }
