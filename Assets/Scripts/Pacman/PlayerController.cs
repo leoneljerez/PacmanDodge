@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject ghost2 = null;
     [SerializeField] private GameObject ghost3 = null;
     [SerializeField] private GameObject ghost4 = null;
+    [SerializeField] private ParticleSystem health = null;
+    [SerializeField] private ParticleSystem reset = null;
+    [SerializeField] private ParticleSystem speed = null;
 
     public static bool isPowerUp;
     public static float powerUpTimer;
@@ -189,6 +192,7 @@ public class PlayerController : MonoBehaviour
             if (num > 20.0) // random event 1 (reset position)
             {
                 print("Random Event: Player Reset Position");
+                reset.Play();
                 collision.transform.position = new Vector3(collision.transform.position.x, -5, collision.transform.position.z);
                 transform.position = _initialPosition;
             }
@@ -196,6 +200,7 @@ public class PlayerController : MonoBehaviour
             {
                 print("Random Event: Player MoveSpeed++ for 3 sec");
                 collision.transform.position = new Vector3(collision.transform.position.x, -5, collision.transform.position.z);
+                speed.Play();
                 setMovementSpeeed(16f);
                 StartCoroutine(WaitFor3Seconds());
             }
@@ -203,6 +208,7 @@ public class PlayerController : MonoBehaviour
             {
                 print("Random Event: Lives++");
                 collision.transform.position = new Vector3(collision.transform.position.x, -5, collision.transform.position.z);
+                health.Play();
                 if (lives < 3)
                 {
                     lives++;
