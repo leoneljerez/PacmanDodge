@@ -4,8 +4,8 @@ using System.Collections;
 public class AEnemies : MonoBehaviour
 {
     [SerializeField] private AudioSource audioStart = null;
-    const float minPathUpdateTime = .2f;
-    const float pathUpdateMoveThreshold = .5f;
+    const float minPathUpdateTime = .1f;
+    const float pathUpdateMoveThreshold = .1f;
 
     [SerializeField] private Transform target;
     public float speed = 20;
@@ -36,17 +36,13 @@ public class AEnemies : MonoBehaviour
     IEnumerator UpdatePath()
     {
         yield return new WaitForSeconds(audioStart.clip.length - 0.5f);
-
-        if (Time.timeSinceLevelLoad < .3f)
-        {
-            yield return new WaitForSeconds(.3f);
-        }
         PathRequesting.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
 
         float sqrMoveThreshold = pathUpdateMoveThreshold * pathUpdateMoveThreshold;
         Vector3 targetPosOld = target.position;
 
-        while (true)
+
+        while (transform.position != target.position)
         {
             yield return new WaitForSeconds(minPathUpdateTime);
             if ((target.position - targetPosOld).sqrMagnitude > sqrMoveThreshold)
@@ -55,6 +51,7 @@ public class AEnemies : MonoBehaviour
                 targetPosOld = target.position;
             }
         }
+        
     }
 
     IEnumerator FollowPath()

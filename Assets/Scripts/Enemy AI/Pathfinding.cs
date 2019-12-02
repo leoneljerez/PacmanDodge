@@ -18,8 +18,6 @@ public class Pathfinding : MonoBehaviour
     public void FindPath(PathRequest request, Action<PathResult> callback)
     {
 
-        Stopwatch sw = new Stopwatch();
-        sw.Start();
 
         Vector3[] waypoints = new Vector3[0];
         bool pathSuccess = false;
@@ -29,7 +27,7 @@ public class Pathfinding : MonoBehaviour
         startNode.parent = startNode;
 
 
-        if (startNode.walkable && targetNode.walkable)
+        if (targetNode.walkable)
         {
             Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
             HashSet<Node> closedSet = new HashSet<Node>();
@@ -42,8 +40,6 @@ public class Pathfinding : MonoBehaviour
 
                 if (currentNode == targetNode)
                 {
-                    sw.Stop();
-                    //print ("Path found: " + sw.ElapsedMilliseconds + " ms");
                     pathSuccess = true;
                     break;
                 }
@@ -55,7 +51,7 @@ public class Pathfinding : MonoBehaviour
                         continue;
                     }
 
-                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour) + neighbour.movementPenalty;
+                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
                     if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
                     {
                         neighbour.gCost = newMovementCostToNeighbour;
@@ -106,7 +102,7 @@ public class Pathfinding : MonoBehaviour
             Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
             if (directionNew != directionOld)
             {
-                waypoints.Add(path[i].worldPosition);
+                waypoints.Add(path[i - 1].worldPosition);
             }
             directionOld = directionNew;
         }
