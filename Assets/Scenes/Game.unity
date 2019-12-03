@@ -1287,6 +1287,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Clyde: {fileID: 5805999110835538050}
+--- !u!1 &84154217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4674643249693343232, guid: e83408f50e7de274688d89be6704e7ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 676703575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &84154218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84154217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10a54252a2ef9649bdc2a5c4e322197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 676703576}
 --- !u!1001 &88125023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40868,9 +40887,9 @@ MonoBehaviour:
   audioStart: {fileID: 2465148711801031382}
   target: {fileID: 315418177}
   speed: 4
-  turnSpeed: 1
+  turnSpeed: 0.5
   turnDst: 1
-  stoppingDst: 3
+  stoppingDst: 2
 --- !u!4 &2465148711801031386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8008715650390649891, guid: 7639f29ddf0add748b24ff811f7db05f,
